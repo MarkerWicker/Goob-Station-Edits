@@ -119,6 +119,12 @@ namespace Content.Shared.Chat
         /// </summary>
         Telepathic = 1 << 16, // Goobstation - Starlight collective mind port
 
+        // Goobstation - Default collective mind channel
+        /// <summary>
+        ///     Collective mind channel for entities who have comp & default
+        /// </summary>
+        DefaultCollectiveMind = 1 << 17,
+
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>

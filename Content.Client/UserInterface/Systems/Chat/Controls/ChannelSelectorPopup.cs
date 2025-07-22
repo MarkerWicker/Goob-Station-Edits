@@ -27,7 +27,7 @@ public sealed class ChannelSelectorPopup : Popup
         ChatSelectChannel.Whisper,
         ChatSelectChannel.Emotes,
         ChatSelectChannel.Radio,
-        ChatSelectChannel.CollectiveMind, // Goobstation - Default collective mind channel.
+        ChatSelectChannel.DefaultCollectiveMind, // Goobstation - Default collective mind channel.
         ChatSelectChannel.Telepathic, //Nyano - Summary: determines the order in which telepathic shows.
         ChatSelectChannel.LOOC,
         ChatSelectChannel.OOC,

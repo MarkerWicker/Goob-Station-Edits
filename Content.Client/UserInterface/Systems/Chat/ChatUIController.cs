@@ -137,7 +137,8 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
         {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic}, //Nyano - Summary: adds the telepathic prefix =.
-        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind} // Goobstation - Starlight collective mind port
+        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind}, // Goobstation - Starlight collective mind port
+        {SharedChatSystem.CollectiveMindDefaultPrefix, ChatSelectChannel.DefaultCollectiveMind} // Goobstation - Default collective mind channel
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -152,7 +153,8 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
         {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix }, //Nyano - Summary: associates telepathic with =.
-        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix} // Goobstation - Starlight collective mind port
+        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix}, // Goobstation - Starlight collective mind port
+        {ChatSelectChannel.DefaultCollectiveMind, SharedChatSystem.CollectiveMindDefaultPrefix} // Goobstation - Default collective mind channel
     };
 
     /// <summary>
@@ -743,11 +745,15 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         if (_collectiveMind != null && _collectiveMind.IsCollectiveMind)
         {
             FilterableChannels |= ChatChannel.CollectiveMind;
+            CanSendChannels |= ChatSelectChannel.CollectiveMind;
+
+            FilterableChannels |= ChatChannel.DefaultCollectiveMind;
             _ent.TryGetComponent<CollectiveMindComponent>(_player.LocalEntity, out var collectiveMind);
+            
             // allow sending messages in the collective mind channel (and thus, only allow selecting the collective mind channel) when a default collective mind channel exists
             if (collectiveMind?.DefaultChannel != null)
             {
-                CanSendChannels |= ChatSelectChannel.CollectiveMind;
+                CanSendChannels |= ChatSelectChannel.DefaultCollectiveMind;
             }
         }
         // Goobstation - end Default collective mind channel
