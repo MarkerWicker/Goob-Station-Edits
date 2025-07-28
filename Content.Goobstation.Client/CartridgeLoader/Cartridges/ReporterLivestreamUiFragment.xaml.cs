@@ -4,6 +4,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Content.Goobstation.Shared.CartridgeLoader.Cartridges;
 using System.Reflection.PortableExecutable;
+using Content.Shared.SurveillanceCamera;
 
 namespace Content.Goobstation.Client.CartridgeLoader.Cartridges;
 
@@ -25,7 +26,7 @@ public sealed partial class ReporterLivestreamUiFragment : BoxContainer
 
         SubnetRefreshButton.OnPressed += _ => SubnetRefresh?.Invoke();
     }
-    public void UpdateState(SharedReporterLivestreamUiState state)
+    public void UpdateState(SurveillanceCameraMonitorUiState state)
     {
         SubnetIdLabel.Text = state.ActiveSubnet;
     }

@@ -40,7 +40,9 @@ public sealed class ReporterLivestreamCartridgeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var state = new SharedReporterLivestreamUiState(Comp<SurveillanceCameraMonitorComponent>(uid).ActiveSubnet);
+        var monitor = Comp<SurveillanceCameraMonitorComponent>(uid);
+
+        var state = new SurveillanceCameraMonitorUiState(GetNetEntity(monitor.ActiveCamera), monitor.KnownSubnets.Keys.ToHashSet(), monitor.ActiveCameraAddress, monitor.ActiveSubnet, monitor.KnownCameras);
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }
 
