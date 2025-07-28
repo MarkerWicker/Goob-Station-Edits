@@ -11,6 +11,8 @@ using Content.Server.SurveillanceCamera;
 using System.Linq;
 using Content.Shared.SurveillanceCamera;
 using Content.Shared.PDA;
+using Content.Server.DeviceNetwork.Systems;
+using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.CartridgeLoader.Cartridges;
 
@@ -18,7 +20,8 @@ public sealed class ReporterLivestreamCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
     [Dependency] private readonly SurveillanceCameraMonitorSystem _monitorSystem = default!;
-    [Dependency] private readonly Robust.Server.GameObjects.UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
 
     public override void Initialize()
     {
@@ -42,7 +45,7 @@ public sealed class ReporterLivestreamCartridgeSystem : EntitySystem
 
         if (message.Action == ReporterLivestreamUIAction.RefreshSubnet)
         {
-            _userInterface.ServerSendUiMessage(uid, SurveillanceCameraMonitorUiKey.Key, new SurveillanceCameraRefreshSubnetsMessage());
+            _userInterface.RaiseUiMessage(uid, SurveillanceCameraMonitorUiKey.Key, new SurveillanceCameraRefreshSubnetsMessage());
         }
     }
 
