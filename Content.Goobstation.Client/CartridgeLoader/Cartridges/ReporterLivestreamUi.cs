@@ -3,6 +3,7 @@ using System.Reflection.PortableExecutable;
 using Content.Client.UserInterface.Fragments;
 using Content.Goobstation.Shared.CartridgeLoader;
 using Content.Goobstation.Shared.CartridgeLoader.Cartridges;
+using Content.Shared.CartridgeLoader;
 using Content.Shared.Info;
 using Content.Shared.SurveillanceCamera;
 using Robust.Client.GameObjects;
@@ -32,13 +33,13 @@ public sealed partial class ReporterLivestreamUi : UIFragment
 
     public override void UpdateState(BoundUserInterfaceState state)
     {
-        if (state is SharedReporterLivestreamUiState cast)
+        if (state is SurveillanceCameraMonitorUiState cast)
             _fragment?.UpdateState(cast);
     }
 
     private void OnSubnetRefresh(BoundUserInterface userInterface)
     {
-        userInterface.SendMessage(new SurveillanceCameraRefreshSubnetsMessage());
+        userInterface.SendMessage(new CartridgeUiMessage(new ReporterLivestreamUIMessageEvent(ReporterLivestreamUIAction.RefreshSubnet)));
     }
 
 }

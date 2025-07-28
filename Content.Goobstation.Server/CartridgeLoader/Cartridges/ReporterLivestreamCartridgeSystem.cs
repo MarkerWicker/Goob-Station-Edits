@@ -25,7 +25,7 @@ public sealed class ReporterLivestreamCartridgeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ReporterLivestreamCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
-
+        SubscribeLocalEvent<ReporterLivestreamCartridgeComponent, CartridgeMessageEvent>(OnUiMessage);
         SubscribeLocalEvent<ReporterLivestreamCartridgeComponent, CartridgeAddedEvent>(OnCartridgeAdded);
         SubscribeLocalEvent<ReporterLivestreamCartridgeComponent, CartridgeRemovedEvent>(OnCartridgeRemoved);
     }
@@ -33,6 +33,17 @@ public sealed class ReporterLivestreamCartridgeSystem : EntitySystem
     private void OnUiReady(EntityUid uid, ReporterLivestreamCartridgeComponent component, CartridgeUiReadyEvent args)
     {
         UpdateUiState(uid, args.Loader, component);
+    }
+
+    private void OnUiMessage(EntityUid uid, ReporterLivestreamCartridgeComponent component, CartridgeMessageEvent args)
+    {
+        if (args is not ReporterLivestreamUIMessageEvent message)
+            return;
+
+        if (message.Action == ReporterLivestreamUIAction.RefreshSubnet)
+        {
+            _userInterface.ServerSendUiMessage(uid, SurveillanceCameraMonitorUiKey.Key, new SurveillanceCameraRefreshSubnetsMessage());
+        }
     }
 
     private void UpdateUiState(EntityUid uid, EntityUid loaderUid, ReporterLivestreamCartridgeComponent? component)
