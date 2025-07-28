@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseItem
+  id: ReporterLivestreamCartridge
+  name: Reporter livestream cartridge
+  description: A program that lets you stay up to date with the news.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart
+  - type: Cartridge
+    programName: reporter-livestream-program-name
+    icon:
+      sprite: Interface/Misc/program_icons.rsi
+      state: news_read
+  - type: UIFragment
+    ui: !type:ReporterLivestreamUi
+  - type: ReporterLivestreamCartridge
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCamera
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMonitor

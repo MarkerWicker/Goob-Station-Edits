@@ -1,0 +1,17 @@
+<cartridges:ReporterLivestreamUiFragment xmlns:cartridges="clr-namespace:Content.Goobstation.Client.CartridgeLoader.Cartridges"
+                               xmlns="https://spacestation14.io" Margin="1 0 2 0">
+
+    <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
+        <!-- two distinct ui columns -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+            <!-- The first column is for selecting a livestream. -->
+            <BoxContainer Orientation="Vertical">
+                <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
+            </BoxContainer>
+            <!-- The second column is for viewing that livestream. -->
+            <BoxContainer Orientation="Vertical">
+                <Label Name="SubnetIdLabel" Text="Subnet ID here:"/>
+            </BoxContainer>
+        </BoxContainer>
+
+</cartridges:ReporterLivestreamUiFragment>
