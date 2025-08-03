@@ -739,11 +739,18 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         }
         // /Nyano - End modified code block
         // Goobstation - Starlight collective mind port
+        // Goobstation - Default collective mind channel
         if (_collectiveMind != null && _collectiveMind.IsCollectiveMind)
         {
             FilterableChannels |= ChatChannel.CollectiveMind;
-            CanSendChannels |= ChatSelectChannel.CollectiveMind;
+            _ent.TryGetComponent<CollectiveMindComponent>(_player.LocalEntity, out var collectiveMind);
+            // allow sending messages in the collective mind channel (and thus, only allow selecting the collective mind channel) when a default collective mind channel exists
+            if (collectiveMind?.DefaultChannel != null)
+            {
+                CanSendChannels |= ChatSelectChannel.CollectiveMind;
+            }
         }
+        // Goobstation - end Default collective mind channel
 
         SelectableChannels = CanSendChannels;
 
