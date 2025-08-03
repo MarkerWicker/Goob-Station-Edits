@@ -61,6 +61,12 @@ namespace Content.Shared.Chat
         /// </summary>
         CollectiveMind = ChatChannel.CollectiveMind,
 
+        // Goobstation - Default collective mind channel
+        /// <summary>
+        ///     Default CollectiveMind channel
+        /// </summary>
+        DefaultCollectiveMind = ChatChannel.DefaultCollectiveMind,
+
         /// <summary>
         ///     Deadchat
         /// </summary>
