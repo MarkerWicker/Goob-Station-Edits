@@ -1,0 +1,28 @@
+<!--
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Shadowkin
+
+  <Box>
+    <GuideEntityEmbed Entity="MobShadowkinDummy" Caption=""/>
+  </Box>
+
+  Shadowkin are a small humanoid species who speak [color=#be3cc5]Marish[/color], a language comprised overwhelmingly of consonants.
+
+  They are generally smaller than other species, though occasionally some shadowkin will be larger than the average human.
+  In any case, all shadowkin are incredibly lightweight, though they're still heavier than Harpies.
+
+  They are innately telepathic, and can interact with each other through something called [color=#7f32a8]"Empathy"[/color] (accessed by typing +s before your chat message).
+  The shadowkin's top two ears generally transmit messages in empathy, while the bottom two recieve it.
+
+  They have highly sensitive eyes. Specialty sunglasses which would normally protect a human from being flashed do not work on shadowkin.
+  However, shadowkin have remarkable night vision capabilities.
+  Interestingly, shadowkin appear not to have visible pupils.
+
+</Document>

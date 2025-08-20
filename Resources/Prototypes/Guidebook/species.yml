@@ -30,6 +30,7 @@
     - Human
     - Moth
     - Reptilian
+    - Shadowkin
     - SlimePerson
     # Goobstation
     # - Felinid
@@ -75,6 +76,11 @@
   id: Reptilian
   name: species-name-reptilian
   text: "/ServerInfo/Guidebook/Mobs/Reptilian.xml"
+
+- type: guideEntry
+  id: Shadowkin
+  name: species-name-shadowkin
+  text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"
 
 - type: guideEntry
   id: SlimePerson
